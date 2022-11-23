@@ -1,6 +1,7 @@
 [![AoC](https://badgen.net/badge/AoC/2022/blue)](https://adventofcode.com/2022)
 [![Python](https://badgen.net/badge/Python/3.11.0+/blue)](https://www.python.org/downloads/)
 ![Language](https://badgen.net/badge/Language/Python/blue)
+[![Template](https://badgen.net/badge/Template/aocd/blue)](https://github.com/wimglenn/advent-of-code-data)
 
 # 🎄 Advent of Code 2022 Python 🎄
 
@@ -46,49 +47,45 @@ All project dependencies are covered in the [Dockerfile](Dockerfile) definition 
 
 ### Local
 
-This assumes Docker as a runtime (feel free to use other runtimes). First ensure that Docker is [installed](https://docs.docker.com/get-docker/). From the repository root, build an image and tag appropriately (e.g., `aoc-ts:local`):
+This assumes Docker as a runtime (feel free to use other runtimes). First ensure that Docker is [installed](https://docs.docker.com/get-docker/). From the repository root, build an image and tag appropriately (e.g., `aoc-py:local`):
 
 ```sh
-docker build --tag aoc-ts:local --file Dockerfile .
+docker build --tag aoc-py:local --file Dockerfile .
 ```
 
-Once [logged in on Advent of Code](https://adventofcode.com/2022/auth/login), locate your session key; this shows up as the value for the `cookie` key in your request headers that you can pull out from browser network tab. Write this value to a `.env` file in the repository root under `AOC_SESSION_KEY` variable:
+Once [logged in on Advent of Code](https://adventofcode.com/2022/auth/login), locate your session key; this shows up as the value for the `cookie` key in your request headers that you can pull out from browser network tab. Write this value to a `.env` file in the repository root under `AOC_SESSION` variable:
 
 ```sh
-AOC_SESSION_KEY=<insert session key here>
+AOC_SESSION=<insert session key here>
 ```
 
 From the repository root, instantiate a container with the current directory mounted and environment variables exported:
 
 ```sh
-docker run --rm -it --volume $PWD:/aoc-ts/$(basename $PWD) --workdir /aoc-ts/$(basename $PWD) aoc-ts:local /bin/bash
-```
-
-Execute the [`aocrunner` tool](https://github.com/caderek/aocrunner) for the day of the challenge; this will prompt you to install `esbuild` once for the duration of the container. In this case, for day 1:
-
-```sh
-pnpm start 1
+docker run --rm -it --volume $PWD:/aoc-py/$(basename $PWD) --workdir /aoc-py/$(basename $PWD) aoc-py:local /bin/bash
 ```
 
 ### GitHub Codespaces
 
-Once [logged in on Advent of Code](https://adventofcode.com/2022/auth/login), locate your session key; this shows up as the value for the `cookie` key in your request headers that you can pull out from browser network tab. Manage this value as an [encrypted secret for your codespaces](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) and name it `AOC_SESSION_KEY`.
+Once [logged in on Advent of Code](https://adventofcode.com/2022/auth/login), locate your session key; this shows up as the value for the `cookie` key in your request headers that you can pull out from browser network tab. Manage this value as an [encrypted secret for your codespaces](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) and name it `AOC_SESSION`.
 
 Create a Codespace from your repository fork.
 
 ### Develop with aocrunner
 
-After getting setup, whether it's locally or on GitHub Codespaces, execute the [`aocrunner` tool](https://github.com/caderek/aocrunner) for the day of the challenge. This will prompt you to install `esbuild` once for the duration of the container.
+After getting setup, whether it's locally or on GitHub Codespaces, create a new subdirectory under `src` for the day of the challenge.
 
 ```sh
-pnpm start <day>
+cp -vr src/template src/day<day>
 ```
 
 Example:
 
 ```
-pnpm start 1
+cp -vr src/template src/day01
 ```
+
+Add [README.md] and use the [`aocd` runner](https://github.com/wimglenn/advent-of-code-data) to write input files as needed.
 
 ---
 
