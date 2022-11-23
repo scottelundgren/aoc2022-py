@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 advent-of-code-data = "==1.2.1"
-advent-of-code-wim = "==2021.25"
 
 [dev-packages]
 
