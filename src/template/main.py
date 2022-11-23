@@ -1,12 +1,15 @@
 from aocd import get_data
 
+
 def part_a(data):
     # your code here..
-    return result
+    return result  # noqa: F821
+
 
 def part_b(data):
     # more code here..
-    return result
+    return result  # noqa: F821
+
 
 test_data = """\
 some example test data
