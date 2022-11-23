@@ -1,0 +1,14 @@
+{
+  "name": "aoc-py",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/aoc-py/${localWorkspaceFolderBasename},type=bind",
+  "workspaceFolder": "/aoc-py/${localWorkspaceFolderBasename}",
+  "extensions": [
+    "dbaeumer.vscode-eslint"
+  ]
+}
