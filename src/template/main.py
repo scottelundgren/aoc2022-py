@@ -4,11 +4,9 @@ def part_a(data):
     # your code here..
     return result
 
-
 def part_b(data):
     # more code here..
     return result
-
 
 test_data = """\
 some example test data
