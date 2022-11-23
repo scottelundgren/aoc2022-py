@@ -85,7 +85,7 @@ Example:
 cp -vr src/template src/day01
 ```
 
-Add [README.md] and use the [`aocd` runner](https://github.com/wimglenn/advent-of-code-data) to write input files as needed.
+Add a `README.md` and use the [`aocd` runner](https://github.com/wimglenn/advent-of-code-data) to write input files as needed.
 
 ---
 
