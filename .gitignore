@@ -185,3 +185,6 @@ poetry.toml
 # Ignore all local history of files
 .history
 .ionide
+
+### Advent of Code Input Data
+src/day[0-2][0-9]/input.txt
